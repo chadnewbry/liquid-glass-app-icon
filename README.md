@@ -20,6 +20,18 @@ Generate ultra-minimal, flat silhouette **1024×1024 PNGs** for Apple's liquid g
 
 ## 🚀 Quickstart
 
+1. Open [Claude Code](https://claude.ai/claude-code)
+2. Ask Claude:
+   ```
+   Can you add the skill from this project? https://github.com/chadnewbry/liquid-glass-app-icon
+   ```
+3. Start generating icons:
+   ```
+   /icon-generate a rocket in deep orange
+   ```
+
+## 📥 Installation
+
 ```bash
 git clone https://github.com/chadnewbry/liquid-glass-app-icon.git
 cd liquid-glass-app-icon
