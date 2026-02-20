@@ -20,3 +20,6 @@ venv/
 
 # Environment
 .env
+
+# Session state (may contain API keys)
+Icon Composer Layers/session_state.json
