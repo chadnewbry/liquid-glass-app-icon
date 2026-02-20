@@ -17,7 +17,7 @@ When the user asks to generate or create an icon, translate their request into a
 Run the CLI via Bash to generate icon variants:
 
 ```bash
-cd /Users/chadnewbry/dev/liquid-glass-app-icon && uv run python -m icon_skill generate "<description>" --variants <N>
+uv run --project /Users/chadnewbry/dev/liquid-glass-app-icon python -m icon_skill generate "<description>" --variants <N>
 ```
 
 - Parse the user's request into a concise description (e.g., "make me a rocket icon" becomes `"a rocket"`)
@@ -29,7 +29,7 @@ cd /Users/chadnewbry/dev/liquid-glass-app-icon && uv run python -m icon_skill ge
 When the user wants to modify the last generated icon:
 
 ```bash
-cd /Users/chadnewbry/dev/liquid-glass-app-icon && uv run python -m icon_skill edit "<change description>"
+uv run --project /Users/chadnewbry/dev/liquid-glass-app-icon python -m icon_skill edit "<change description>"
 ```
 
 - Translate requests like "make it blue" into `edit "change the shape color to blue"`
@@ -39,13 +39,13 @@ cd /Users/chadnewbry/dev/liquid-glass-app-icon && uv run python -m icon_skill ed
 ### List generated icons
 
 ```bash
-cd /Users/chadnewbry/dev/liquid-glass-app-icon && uv run python -m icon_skill list
+uv run --project /Users/chadnewbry/dev/liquid-glass-app-icon python -m icon_skill list
 ```
 
 ### Set API key
 
 ```bash
-cd /Users/chadnewbry/dev/liquid-glass-app-icon && uv run python -m icon_skill set-key <KEY>
+uv run --project /Users/chadnewbry/dev/liquid-glass-app-icon python -m icon_skill set-key <KEY>
 ```
 
 ## After running
@@ -53,7 +53,7 @@ cd /Users/chadnewbry/dev/liquid-glass-app-icon && uv run python -m icon_skill se
 - Report the file paths of generated/edited images to the user
 - Report any validation warnings or errors
 - If validation failed and retried, mention that a retry was attempted
-- The output directory is `./Icon Composer Layers/`
+- The output directory is `./Icon Composer Layers/` relative to the user's current working directory
 
 ## Important notes
 
