@@ -5,7 +5,7 @@ I built this repo so that I could quickly and easily generate images to be used 
 Generate ultra-minimal, flat silhouette **1024×1024 PNGs** for Apple's liquid glass icon layers — powered by the OpenAI Image API.
 
 <p align="center">
-  <img src="Example/rocket-icon-composer-preview.png" width="400" alt="Rocket icon in Apple Icon Composer with liquid glass effect">
+  <img src="Example/rocket-icon-composer-iOS-Dark-256x256@2x.png" width="256" alt="Rocket icon with liquid glass effect">
 </p>
 
 <p align="center">
