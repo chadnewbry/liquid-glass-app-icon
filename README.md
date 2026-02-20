@@ -27,7 +27,7 @@ Generate ultra-minimal, flat silhouette **1024×1024 PNGs** for Apple's liquid g
    ```
 3. Start generating icons:
    ```
-   /icon-generate a rocket in deep orange
+   Generate me an app icon of a rocket in deep orange
    ```
 
 ## 📥 Installation
