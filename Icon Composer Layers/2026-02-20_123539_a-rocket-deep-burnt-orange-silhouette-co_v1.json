@@ -1,0 +1,9 @@
+{
+  "user_intent": "a rocket, deep burnt orange silhouette color",
+  "compiled_prompt": "Generate a 1024x1024 PNG icon layer with ALL of these rules:\n\nBACKGROUND: Fully transparent background. All empty space must be transparent (alpha = 0). Do NOT fill the background with any color.\nSHAPE: Exactly ONE continuous silhouette shape \u2014 no separate pieces, no floating elements.\nCOLOR: The silhouette must be ONE solid flat color \u2014 absolutely NO gradients, shadows, highlights, glow, outlines, textures, or internal details.\nGEOMETRY: Large smooth rounded curves. Avoid thin lines, small details, or intricate features.\nCOMPOSITION: Centered on the canvas with approximately 60px margin on all sides. Bold, geometric, and readable at small sizes.\nCORNERS: All four corners of the image MUST be fully transparent.\nSTYLE: Ultra-minimal flat design. Think of a single-color vinyl sticker silhouette on a transparent canvas.\n\nSTYLE GUIDE: Bold, rounded, balanced silhouette. Symmetric and compact.\n\nSUBJECT: a rocket, deep burnt orange silhouette color",
+  "model": "gpt-image-1",
+  "created_at": "2026-02-20T12:35:39.320319",
+  "variant_index": 1,
+  "parent_image": null,
+  "output_path": "/Users/chadnewbry/dev/liquid-glass-app-icon/Icon Composer Layers/2026-02-20_123539_a-rocket-deep-burnt-orange-silhouette-co_v1.png"
+}

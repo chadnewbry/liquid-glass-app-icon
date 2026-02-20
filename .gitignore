@@ -17,8 +17,6 @@ venv/
 *.swp
 *.swo
 
-# Output
-Icon Composer Layers/
 
 # Environment
 .env

@@ -1,7 +1,7 @@
 """Post-generation validation for icon images.
 
 Checks that generated images conform to the strict constraints required
-for Apple Icon Composer layers (size, black corners, minimal color palette).
+for Apple Icon Composer layers (size, transparent corners, minimal color palette).
 """
 
 from __future__ import annotations
@@ -33,40 +33,47 @@ def check_size(img: Image.Image, result: ValidationResult) -> None:
 
 
 def check_corners(img: Image.Image, result: ValidationResult) -> None:
-    """All four corner pixels must be pure black (0,0,0)."""
+    """All four corner pixels must be transparent (alpha=0) or near-black with low alpha."""
+    rgba = img.convert("RGBA")
     corners = [
         ((0, 0), "top-left"),
         ((1023, 0), "top-right"),
         ((0, 1023), "bottom-left"),
         ((1023, 1023), "bottom-right"),
     ]
-    rgb = img.convert("RGB")
     for (x, y), label in corners:
-        pixel = rgb.getpixel((x, y))
-        if pixel != (0, 0, 0):
+        pixel = rgba.getpixel((x, y))
+        alpha = pixel[3]
+        # Allow fully transparent or near-transparent corners
+        if alpha > 10:
             result.passed = False
             result.errors.append(
-                f"Corner {label} at ({x},{y}) is {pixel}, expected (0,0,0)"
+                f"Corner {label} at ({x},{y}) is RGBA{pixel}, expected transparent (alpha=0)"
             )
 
 
 def check_color_count(img: Image.Image, result: ValidationResult) -> None:
-    """Downsample to 256x256 and count unique colors.
+    """Downsample to 256x256 and count unique opaque colors.
 
-    Ideal: 2 (black + one silhouette color).
-    Warn: > 5 colors.
-    Fail: > 20 colors.
+    Ideal: 1 opaque color (the silhouette) + transparent.
+    Warn: > 5 opaque colors.
+    Fail: > 20 opaque colors.
     """
-    small = img.convert("RGB").resize((256, 256), Image.NEAREST)
-    colors = len(set(small.getdata()))
+    small = img.convert("RGBA").resize((256, 256), Image.NEAREST)
+    # Count unique colors among non-transparent pixels only
+    opaque_colors = set()
+    for pixel in small.getdata():
+        if pixel[3] > 10:  # Not transparent
+            opaque_colors.add(pixel[:3])
+    colors = len(opaque_colors)
     if colors > 20:
         result.passed = False
         result.errors.append(
-            f"Too many colors ({colors}) — image likely has gradients or details"
+            f"Too many opaque colors ({colors}) — image likely has gradients or details"
         )
     elif colors > 5:
         result.warnings.append(
-            f"Color count is {colors} (ideal is 2) — may have anti-aliasing or slight variation"
+            f"Opaque color count is {colors} (ideal is 1) — may have anti-aliasing or slight variation"
         )
 
 

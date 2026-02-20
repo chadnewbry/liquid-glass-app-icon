@@ -56,7 +56,7 @@ def generate_image(
                 n=1,
                 size=size,
                 quality=quality,
-                output_format="b64_json",
+                output_format="png",
             )
             b64_data = response.data[0].b64_json
             return base64.b64decode(b64_data)

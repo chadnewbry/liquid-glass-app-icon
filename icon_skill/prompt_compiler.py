@@ -16,13 +16,13 @@ import re
 CONSTRAINTS_PREAMBLE = """\
 Generate a 1024x1024 PNG icon layer with ALL of these rules:
 
-BACKGROUND: Pure black background (RGB 0,0,0) filling the entire canvas.
+BACKGROUND: Fully transparent background. All empty space must be transparent (alpha = 0). Do NOT fill the background with any color.
 SHAPE: Exactly ONE continuous silhouette shape — no separate pieces, no floating elements.
 COLOR: The silhouette must be ONE solid flat color — absolutely NO gradients, shadows, highlights, glow, outlines, textures, or internal details.
 GEOMETRY: Large smooth rounded curves. Avoid thin lines, small details, or intricate features.
 COMPOSITION: Centered on the canvas with approximately 60px margin on all sides. Bold, geometric, and readable at small sizes.
-CORNERS: All four corners of the image MUST be pure black (RGB 0,0,0).
-STYLE: Ultra-minimal flat design. Think of a single-color vinyl sticker silhouette.
+CORNERS: All four corners of the image MUST be fully transparent.
+STYLE: Ultra-minimal flat design. Think of a single-color vinyl sticker silhouette on a transparent canvas.
 """
 
 # ---------------------------------------------------------------------------
@@ -76,9 +76,10 @@ def build_edit_prompt(change_request: str) -> str:
     """
     abbreviated = (
         "This is an icon layer. Maintain these rules: "
-        "pure black background (RGB 0,0,0), exactly ONE continuous silhouette shape, "
+        "fully transparent background (all empty space must be transparent, alpha=0), "
+        "exactly ONE continuous silhouette shape, "
         "ONE solid flat color with NO gradients/shadows/highlights/glow/outlines/textures/details, "
-        "large smooth rounded curves, centered with ~60px margin, all four corners pure black."
+        "large smooth rounded curves, centered with ~60px margin, all four corners fully transparent."
     )
     raw = f"{abbreviated}\n\nREQUESTED CHANGE: {change_request}"
     return _sanitize(raw)
@@ -87,8 +88,8 @@ def build_edit_prompt(change_request: str) -> str:
 def strengthened_suffix() -> str:
     """Return a suffix to append when validation fails and we retry."""
     return (
-        "\n\nCRITICAL REMINDER: The four corners MUST be pure black. "
+        "\n\nCRITICAL REMINDER: The four corners MUST be fully transparent. "
         "Use ONLY ONE flat color for the silhouette — no gradients, no shading, "
-        "no highlights. The background must be completely black. "
+        "no highlights. The background must be completely transparent (alpha=0). "
         "Keep the shape simple with smooth curves."
     )

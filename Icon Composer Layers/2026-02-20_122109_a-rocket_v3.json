@@ -1,0 +1,9 @@
+{
+  "user_intent": "a rocket",
+  "compiled_prompt": "Generate a 1024x1024 PNG icon layer with ALL of these rules:\n\nBACKGROUND: Pure black background (RGB 0,0,0) filling the entire canvas.\nSHAPE: Exactly ONE continuous silhouette shape \u2014 no separate pieces, no floating elements.\nCOLOR: The silhouette must be ONE solid flat color \u2014 absolutely NO gradients, shadows, highlights, glow, outlines, textures, or internal details.\nGEOMETRY: Large smooth rounded curves. Avoid thin lines, small details, or intricate features.\nCOMPOSITION: Centered on the canvas with approximately 60px margin on all sides. Bold, geometric, and readable at small sizes.\nCORNERS: All four corners of the image MUST be pure black (RGB 0,0,0).\nSTYLE: Ultra-minimal flat design. Think of a single-color vinyl sticker silhouette.\n\nSTYLE GUIDE: Thick crescent or arc-based silhouette. Simple, readable, with generous curves.\n\nSUBJECT: a rocket",
+  "model": "gpt-image-1",
+  "created_at": "2026-02-20T12:21:10.001049",
+  "variant_index": 3,
+  "parent_image": null,
+  "output_path": "/Users/chadnewbry/dev/liquid-glass-app-icon/Icon Composer Layers/2026-02-20_122109_a-rocket_v3.png"
+}
