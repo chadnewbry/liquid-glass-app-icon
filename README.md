@@ -1,7 +1,5 @@
 # 🧊 Liquid Glass App Icon Generator
 
-I built this repo so that I could quickly and easily generate images to be used in Icon Composer to make iOS app icons. I packaged it this way so that Claude can easily add this as a skill, and then you can simply ask Claude to generate an app icon for you, and it will find the skill and do so.
-
 Generate ultra-minimal, flat silhouette **1024×1024 PNGs** for Apple's liquid glass icon layers — powered by the OpenAI Image API.
 
 <p align="center">
